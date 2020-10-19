@@ -1,0 +1,22 @@
+/* pages/detail/index.wxss */
+.detail-tip{
+  display: block;
+  padding:6px 12px;
+  margin: 2px;
+  font-size: 14px;
+  background-color: #f0f2f5;
+    color: #FF8C00;
+}
+.detail-type{
+  display: block;
+  font-size: 12px;
+  margin-left: 16px;
+}
+.weui-media-box__desc {
+  color: var(--weui-FG-2);
+  font-size: 14px;
+  padding-top: 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 100;
+}

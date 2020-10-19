@@ -2,7 +2,8 @@
   "pages": [
     "pages/classify/index",
     "pages/main/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

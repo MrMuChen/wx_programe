@@ -1,4 +1,5 @@
 // pages/classify/index.js
+var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
   /**
@@ -10,20 +11,35 @@ Page({
     currentFirstClassify: '',
     currentSecondClassify: '',
     firstClassify: [
-        {id: 5, areaName: 'unique_5asdfasdf',subs:[ {id: 77, name: 'unique_4asdf'},{id: 88, name: 'unique_3adsf'}]},
-        {id: 4, areaName: 'unique_4asdf'},
-        {id: 3, areaName: 'unique_3adsf'},
-        {id: 2, areaName: 'unique_2asdfasdfadfadsfa'},
-        {id: 1, areaName: 'unique_1asdf'},
-        {id: 0, areaName: 'unique_0asdfasdfasdf'},
+        {id: 4, areaName: '中银结算通宝产品'},
+        {id: 5, areaName: '苏科贷业务'},
+        {id: 3, areaName: '中银税贷通业务'},
+        {id: 2, areaName: '“中银知贷通”知识产权质押贷款业务'},
+        {id: 1, areaName: '中银知保通业务'},
+        {id: 0, areaName: '增信保业务'},
+        {id: 0, areaName: '小额贷业务'},
+        {id: 0, areaName: '中银扶农通宝业务'},
+        {id: 0, areaName: 'E拍贷-中小企业 业务'}
       ],
+      tabs: ["选项一", "选项二", "选项三"],
+      activeIndex: 1,
+      sliderOffset: 0,
+      sliderLeft: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getSystemInfo({
+        success: function(res) {
+            that.setData({
+                sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+                sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+            });
+        }
+    });
   },
 
   /**
@@ -97,8 +113,14 @@ Page({
       });
   },
   showChilds: function (id) {
+    wx.navigateTo({
+        url: '/pages/detail/index'
+      })
+  },
+  tabClick: function (e) {
     this.setData({
-        currentFirstClassify: id
+        sliderOffset: e.currentTarget.offsetLeft,
+        activeIndex: e.currentTarget.id
     });
   }
 })

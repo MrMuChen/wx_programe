@@ -1,0 +1,29 @@
+<view>
+    <text class='detail-tip'>中银结算通宝产品详情\n</text>
+  
+    <view class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">客群特征</h4>
+					<view class="weui-media-box__desc">
+            <view>
+              在我行结算的中小企业无贷户,不包括已获批复，且尚未结清授信的存量中小授信客户（上年度已叙做“中银结算通宝”产品的存量中小客户除外）参考省行推送的结算通宝目标客户清单。
+              </view>
+          </view>
+				</view>
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">准入要求</h4>
+					<view class="weui-media-box__desc">
+            <view>1、优先支持及一般支持客户。</view>
+            <view>2、在我行开立对公结算账户两年（含以上）（备注：推送数据中未筛选</view>
+            <view>3、剔除同名划转后的前12个月我行贷方累计结算额在1000万元（含）以上；前12个月借贷方累计结算笔数在100笔（含）以上；</view>
+            <view>4、同名账户之间相互转账的金额和笔数不计入统计；</view>
+            <view>5、实际控制人及其配偶须向我行披露个人名下资产；</view>
+            <view>6、企业及实际控制人信用记录良好，在人行征信系统中无逾期记录，或能证明非主观原因逾期的除外。</view>
+            <view>“非主观原因逾期”是指同时满足如下3个条件：</view>
+            <view>1）企业及实际控制人近两年最高逾期金额不超过一万元；</view>
+            <view>2）企业及实际控制人近两年逾期记录不超过三笔，并快速归还每笔逾期； </view>
+            <view>3）企业及实际控制人能提供逾期发生同期 ，在任一银行账户中活期存款余额大于逾期金额的证明材料。</view>
+          </view>
+				</view>
+			</view>
+</view>

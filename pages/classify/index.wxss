@@ -147,6 +147,27 @@
 .search_input {
   margin-left: 30rpx;
   width: 100%;
-font-size: 30rpx;
+  font-size: 30rpx;
+}
+
+.page{
+  height:100%
+}
+.page__bd{
+  padding-bottom:0
+}
+.weui-tab__content{
+  padding-top:60px;
+  text-align:center
+}
+.weui-navbar__item{
+  padding: 8rpx 0;
+  padding-top: 8rpx;
+  margin-top: 2rpx;
+}
+.weui-bar__item_on{
+  --background-color: #FF8C00 !important;
+  --color: #ffffff;
+  color: #FF8C00;
 }
  
