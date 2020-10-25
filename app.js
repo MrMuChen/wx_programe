@@ -4,7 +4,7 @@ App({
 
   },
   userInfo: null,
-  origin: 'http://localhost:2579',
+  origin: 'https://www.yudong.info:80',
   globalData: {
     pileDetail: null,
   }

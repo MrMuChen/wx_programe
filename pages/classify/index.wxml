@@ -5,14 +5,11 @@
 	<view class="page__bd" style="height: 100%;">
 		<view class="weui-tab">
 			<view class="weui-navbar">
-				<view class="weui-navbar__item weui-bar__item_on">
-						全省
-				</view>
-				<view class="weui-navbar__item">
-						南京
+				<view wx:for="{{tabs}}" class="weui-navbar__item {{currentFirstClassify == item.dirId?'weui-bar__item_on':''}}" bindtap="changeTab" data-tabId="{{item.dirId}}">
+						{{item.dirName}}
 				</view>
 			</view>
-			<view class="weui-tab__panel" v-if>
+			<view class="weui-tab__panel">
 				<!--搜索按钮-->
 				<view class="page__bd">
 					<view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
@@ -27,22 +24,21 @@
 								<span class="weui-search-bar__text">搜索</span>
 							</label>
 						</form>
+						<span wx:if="{{inputShowed}}" class="search-btn" bindtap="searchBusiness">搜 索</span>
 					</view>
 				</view>
 
 
-				<block wx:for="{{firstClassify}}" wx:for-index="id" wx:for-item="item">
+				<block wx:for="{{firstClassify}}" wx:for-index="dirId" wx:for-item="item">
 					<view class='classify'>
-							<view class='classify-sub' catchtap="showChilds" data-param="{{idx}}">
+							<view class='classify-sub' catchtap="showChilds" data-id="{{item.dirId}}" data-name="{{item.dirName}}">
 								<vies class='classify-name'>
 									<image src="../../image/yilei.png" alt style="width: 20px; height: 20px; margin-right: 16px; display: block;"></image>
-									<text class='classify-sub-name' catchtap='showChilds' data-param="{{id}}">{{item.areaName}}</text>
+									<text class='classify-sub-name'>{{item.dirName}}</text>
 								</vies>
 								
-								<image class='classify-sub-img' data-param="{{id}}" src='{{currentFirstClassify == id ? "../../image/push.png" : "../../image/pull.png"}}' catchtap='showChilds'></image>
+								<image class='classify-sub-img' src='../../image/pull.png'></image>
 							</view>
-
-					
 					</view>
 				</block>
 

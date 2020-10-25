@@ -1,5 +1,6 @@
 // pages/classify/index.js
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+import { getAllAreas, getBusinessByArea, getBusinessDetails } from '../../services/calssify'
 Page({
 
   /**
@@ -8,20 +9,9 @@ Page({
   data: {
     inputShowed: false,
     inputVal: "",
+    tabs: [],
     currentFirstClassify: '',
-    currentSecondClassify: '',
-    firstClassify: [
-        {id: 4, areaName: '中银结算通宝产品'},
-        {id: 5, areaName: '苏科贷业务'},
-        {id: 3, areaName: '中银税贷通业务'},
-        {id: 2, areaName: '“中银知贷通”知识产权质押贷款业务'},
-        {id: 1, areaName: '中银知保通业务'},
-        {id: 0, areaName: '增信保业务'},
-        {id: 0, areaName: '小额贷业务'},
-        {id: 0, areaName: '中银扶农通宝业务'},
-        {id: 0, areaName: 'E拍贷-中小企业 业务'}
-      ],
-      tabs: ["选项一", "选项二", "选项三"],
+    firstClassify: [],
       activeIndex: 1,
       sliderOffset: 0,
       sliderLeft: 0
@@ -31,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取系统信息  
     var that = this;
     wx.getSystemInfo({
         success: function(res) {
@@ -40,20 +31,44 @@ Page({
             });
         }
     });
+    //首先查询上面的tabs
+    var param = {
+        parentId: '00000001'
+    }
+    getAllAreas(param).then(result => {
+        if (result.respData) {
+            this.setData({
+                tabs: result.respData
+            });
+        }
+        //调用函数获取数据初始值
+        if(this.data.tabs.length>0){
+            this.setData({
+                currentFirstClassify: this.data.tabs[0].dirId
+            });
+        }
+        //加载第一个tab的详细数据
+        var param = {parentId: this.data.currentFirstClassify}
+        getBusinessByArea(param).then(result => {
+            this.setData({
+                firstClassify: result.respData
+            });
+        })
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -112,9 +127,11 @@ Page({
           inputVal: e.detail.value
       });
   },
-  showChilds: function (id) {
+  showChilds: function (event) {
+    var productId = event.currentTarget.dataset.id
+    var productName = event.currentTarget.dataset.name
     wx.navigateTo({
-        url: '/pages/detail/index'
+        url: '/pages/detail/index?productId='+productId+'&productName='+productName
       })
   },
   tabClick: function (e) {
@@ -122,5 +139,30 @@ Page({
         sliderOffset: e.currentTarget.offsetLeft,
         activeIndex: e.currentTarget.id
     });
+  },
+  changeTab: function(event){
+    this.setData({
+        currentFirstClassify: event.currentTarget.dataset.tabid
+    });
+    //获取tab切换后的数据
+    var param = {
+        parentId: event.currentTarget.dataset.tabid
+    }
+    getBusinessByArea(param).then(result => {
+        if (result.respData) {
+            this.setData({
+                firstClassify: result.respData
+            });
+        }
+    })
+  },
+  searchBusiness: function(){
+    //搜索业务信息
+    var param = {parentId: this.data.currentFirstClassify, keyWord: this.data.inputVal}
+    getBusinessByArea(param).then(result => {
+        this.setData({
+            firstClassify: result.respData
+        });
+    })
   }
 })
