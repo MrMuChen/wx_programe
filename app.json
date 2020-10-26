@@ -3,7 +3,8 @@
     "pages/classify/index",
     "pages/main/index",
     "pages/my/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/template/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

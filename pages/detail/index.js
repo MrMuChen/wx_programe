@@ -1,5 +1,6 @@
 // pages/detail/index.js
 import { getBusinessDetails } from '../../services/calssify'
+
 Page({
 
   /**
@@ -22,8 +23,27 @@ Page({
     var param = {productId: this.data.productId}
     getBusinessDetails(param).then(result => {
       if (result.respData) {
+          var formatProduct = result.respData
+          if(formatProduct.conditionReq.indexOf("table")>-1){
+            formatProduct.conditionReqTable = formatProduct.conditionReq.replace("<table>","").replace("</table>","")
+          }else{
+            formatProduct.conditionReqSpans = formatProduct.conditionReq.split("\n")
+          }
+          if(formatProduct.riskTaking.indexOf("table")>-1){
+            formatProduct.riskTakingTable = formatProduct.riskTaking.replace("<table>","").replace("</table>","")
+          }else{
+            formatProduct.riskTakingSpans = formatProduct.riskTaking.split("\n")
+          }
+          formatProduct.measures = formatProduct.measure.split("\n")
+          if(formatProduct.overdraftLimit.indexOf("table")>-1){
+            formatProduct.overdraftLimitTable = formatProduct.overdraftLimit.replace("<table>","").replace("</table>","")
+          }else{
+            formatProduct.overdraftLimitSpans = formatProduct.overdraftLimit.split("\n")
+          }
+          formatProduct.requiredApprovals = formatProduct.requiredApproval.split("\n")
+          formatProduct.referencesSbs = formatProduct.referencesSb.split("\n")
           this.setData({
-            product: result.respData
+            product: formatProduct
           });
       }
     })
@@ -76,5 +96,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  formatHtml: function(html){
+    console.log("format")
+    html = html.replace("<table>","")
+    html = html.replace("</table>","")
+    return html;
   }
 })

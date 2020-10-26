@@ -28,7 +28,6 @@
   padding: 8px 22px;
  }
  .risk-list{
-  background-image: url(../../image/jinrong.png);
   height: 100vh;
  }
  .weui-search-bar{
