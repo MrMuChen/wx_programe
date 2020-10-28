@@ -39,7 +39,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">风险分担比例</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.riskTaking == ''}}">暂无</view>
+            <view wx:if="{{product.riskTaking == '' || product.riskTaking == null}}">暂无</view>
             <view wx:elif="{{product.riskTakingSpans.length>0}}">
               <view wx:for="{{product.riskTakingSpans}}">
                 {{item}}
@@ -54,7 +54,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">具体风控措施</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.measure == ''}}">暂无</view>
+            <view wx:if="{{product.measure == '' || product.measure == null}}">暂无</view>
             <view wx:else >
               <view wx:for="{{product.measures}}">
                 {{item}}
@@ -66,7 +66,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">授信产品</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.productType == ''}}">暂无</view>
+            <view wx:if="{{product.productType == '' || product.productType == null}}">暂无</view>
             <view wx:else>{{product.productType}}</view>
           </view>
         </view>
@@ -74,7 +74,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">额度上限</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.overdraftLimit == ''}}">暂无</view>
+            <view wx:if="{{product.overdraftLimit == '' || product.overdraftLimit == null}}">暂无</view>
             <view  wx:elif="{{product.overdraftLimitSpans.length>0}}">
               <view wx:for="{{product.overdraftLimitSpans}}">
                 {{item}}
@@ -89,7 +89,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">审批时效及现场尽责要求</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.requiredApproval == ''}}">暂无</view>
+            <view wx:if="{{product.requiredApproval == '' || product.requiredApproval == null}}">暂无</view>
             <view wx:else>
               <view wx:for="{{product.requiredApprovals}}">
                 {{item}}
@@ -101,7 +101,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">参考文件</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.referencesSb == ''}}">暂无</view>
+            <view wx:if="{{product.referencesSb == '' || product.referencesSb == null}}">暂无</view>
             <view wx:else>
               <view wx:for="{{product.referencesSbs}}">
                 {{item}}
@@ -113,7 +113,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">政策适用范围</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.scope == ''}}">暂无</view>
+            <view wx:if="{{product.scope == '' || product.scope == null}}">暂无</view>
             <view wx:else>{{product.scope}}</view>
           </view>
         </view>
@@ -121,7 +121,7 @@
         <view class="weui-media-box weui-media-box_text">
 					<h4 class="weui-media-box__title">产品经理</h4>
 					<view class="weui-media-box__desc">
-            <view wx:if="{{product.productManager == ''}}">暂无</view>
+            <view wx:if="{{product.productManager == '' || product.productManager == null}}">暂无</view>
             <view wx:else>{{product.productManager}}</view>
           </view>
         </view>
