@@ -2,10 +2,7 @@
   "pages": [
     "pages/login/index",
     "pages/classify/index",
-    "pages/main/index",
-    "pages/my/index",
-    "pages/detail/index",
-    "pages/template/index"
+    "pages/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
