@@ -253,3 +253,6 @@
 .risk-tips{
   color: red;
 }
+.productImg{
+  width: 100%;
+}

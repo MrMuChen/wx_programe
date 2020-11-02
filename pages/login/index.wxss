@@ -1,10 +1,47 @@
 .login-btn{
   width: 130px;
   height: 40px;
-  margin-top: 50px;
+  margin-top: 20px;
   line-height: 40px;
-  background-color: #3e9300;
+  background-color: #FF8C00;
   color: white;
   text-align: center;
   letter-spacing: 3px;
+}
+.login-view{
+  width: 300px;
+  height:200px;
+  margin: 160px auto 10px;
+  border-radius: 3%;
+  box-shadow: darkgrey 10px 10px 30px 5px ;
+  padding: 10px 15px 0;
+}
+.login-tip{
+  color:#ccc;
+  text-align: center;
+  font-size: 15px;
+}
+.login-account{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+.account-label,.password-label{
+  color: #FF8C00;
+  font-size: 14px;
+}
+.weui-input {
+  border: #ccc 1px solid;
+  width: 200px;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  padding-left: 6px;
+}
+.login-password{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
 }

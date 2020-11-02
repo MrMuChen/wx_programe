@@ -4,7 +4,7 @@ App({
 
   },
   userInfo: null,
-  origin: 'https://www.yudong.info/yudong',
+  origin: 'https://www.yudong.info:9527',
   globalData: {
     pileDetail: null,
   }

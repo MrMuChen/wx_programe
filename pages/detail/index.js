@@ -9,7 +9,8 @@ Page({
   data: {
     productName: '',
     productId: '',
-    product: {}
+    product: {},
+    imgData: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
   },
 
   /**
@@ -25,15 +26,15 @@ Page({
       if (result.respData) {
           var formatProduct = result.respData
           if(formatProduct.conditionReq){
-            if(formatProduct.conditionReq.indexOf("table")>-1){
-              formatProduct.conditionReqTable = formatProduct.conditionReq.replace("<table>","").replace("</table>","")
+            if(formatProduct.conditionReq.indexOf("img")>-1){
+              formatProduct.conditionReqImg = formatProduct.conditionReq.split("|")[1]
             }else{
               formatProduct.conditionReqSpans = formatProduct.conditionReq.split("\n")
             }
           }
           if(formatProduct.riskTaking){
-            if(formatProduct.riskTaking.indexOf("table")>-1){
-              formatProduct.riskTakingTable = formatProduct.riskTaking.replace("<table>","").replace("</table>","")
+            if(formatProduct.riskTaking.indexOf("img")>-1){
+              formatProduct.riskTakingImg = formatProduct.riskTaking.split("|")[1]
             }else{
               formatProduct.riskTakingSpans = formatProduct.riskTaking.split("\n")
             }
@@ -42,8 +43,8 @@ Page({
             formatProduct.measures = formatProduct.measure.split("\n")
           }
           if(formatProduct.overdraftLimit){
-            if(formatProduct.overdraftLimit.indexOf("table")>-1){
-              formatProduct.overdraftLimitTable = formatProduct.overdraftLimit.replace("<table>","").replace("</table>","")
+            if(formatProduct.overdraftLimit.indexOf("img")>-1){
+              formatProduct.overdraftLimitImg = formatProduct.overdraftLimit.split("|")[1]
             }else{
               formatProduct.overdraftLimitSpans = formatProduct.overdraftLimit.split("\n")
             }

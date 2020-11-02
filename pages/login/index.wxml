@@ -1,4 +1,22 @@
 <!--用户登录-->
 <view class="login">
-  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
+
+  <view class="login-view">
+      <view class="login-tip">用户登陆</view>
+      
+      <view class="login-account">
+        <view class="account-label">账号：</view>
+
+        <input class="weui-input" auto-focus maxlength="20" placeholder="登陆账号" value="{{account}}" bindinput="bindAccountChange"/>
+      </view>
+
+      <view class="login-password">
+        <view class="password-label">密码：</view>
+        <input class="weui-input" password type="text" maxlength="20" placeholder="登陆密码" value="{{password}}" bindinput="bindPasswordChange"/>
+      </view>
+
+
+  </view>
+  <button class="login-btn" bindtap="login">登录</button>
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 </view>

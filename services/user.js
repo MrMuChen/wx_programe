@@ -2,10 +2,7 @@ import request from "../utils/request";
 import { stringify } from "../utils/util"
 
 export function login(data) {
-  return request(`/api/qq/q/q/q`, {
-    method: 'POST',
-    data,
-  })
+  return request(`/api/login?${stringify(data)}`)
 }
 
 export function getCurrentUser(data) {

@@ -31,7 +31,7 @@
               </view>
             </view>
             <view wx:else>
-              <template is="conditionReq{{product.productId}}"/>
+              <image class="productImg" src="https://www.yudong.info/{{product.conditionReqImg}}" ></image>
             </view>
           </view>
         </view>
@@ -46,7 +46,7 @@
               </view>
             </view>
             <view wx:else>
-              <template is="riskTaking{{product.productId}}"/>
+              <image class="productImg" src="https://www.yudong.info/{{product.riskTakingImg}}" ></image>
             </view>
           </view>
         </view>
@@ -81,7 +81,7 @@
               </view>
             </view>
             <view wx:else>
-              <template is="overdraftLimit{{product.productId}}"/>
+              <image class="productImg" src="https://www.yudong.info/{{product.overdraftLimitImg}}" ></image>
             </view>
           </view>
         </view>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/classify/index",
     "pages/main/index",
     "pages/my/index",
@@ -17,5 +18,8 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 }
